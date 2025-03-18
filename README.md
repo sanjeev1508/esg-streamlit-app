@@ -24,8 +24,8 @@ This project is a data-driven platform for analyzing and optimizing ESG (Environ
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/esg-streamlit-app.git
+   cd esg-streamlit-ap
    ```
 2. Install required dependencies:
    ```bash
