@@ -68,6 +68,35 @@ The project uses multiple ESG-related datasets:
 - Scatter Plot: Projected Impact vs Predicted ESG Score
 - Bar Chart: Top 10 ESG Projects by Score
 
+## Deploying on Hadoop (Ubuntu 22)
+This section provides steps to deploy the ESG data analysis platform on **Hadoop** using **Ubuntu 22**.
+
+### **Step 1: Mount the Shared Directory (if applicable)**
+If using a shared folder to transfer CSV files, mount it before accessing:
+```bash
+sudo mount -t vboxsf <shared_folder_name> /media/<mount_point>
+```
+Verify the files:
+```bash
+ls -l /media/<mount_point>/
+```
+
+### **Step 2: Create a Directory in HDFS**
+Create a directory in **HDFS** to store CSV files:
+```bash
+hdfs dfs -mkdir -p /esg_project/csv_files/
+hdfs dfs -ls /esg_project/
+```
+
+### **Step 3: Upload CSV Files to HDFS**
+Upload all ESG dataset files into the **HDFS directory**:
+```bash
+hdfs dfs -put /media/<mount_point>/*.csv /esg_project/csv_files/
+hdfs dfs -ls /esg_project/csv_files/
+```
+
+Once the dataset is uploaded, you can process the data using **Hadoop MapReduce**, **Apache Spark**, or integrate it with **Streamlit** for visualization.
+
 ## Future Enhancements
 - Integrate more advanced deep learning models.
 - Improve risk analysis using probabilistic models.
@@ -75,3 +104,4 @@ The project uses multiple ESG-related datasets:
 
 ## License
 This project is open-source and available under the MIT License.
+
